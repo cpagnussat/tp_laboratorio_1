@@ -1,3 +1,5 @@
+//prototipos
+
 
 int factorial(int numero);
 int resta(int numero1,int numero2);
