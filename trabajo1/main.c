@@ -8,7 +8,7 @@
 int main()
 {
     char salir;
-    int opcion1;
+    char opcion1;
     char opcion2;
     int A, B;
     int flag1 = 0, flag2 = 0;
@@ -17,7 +17,7 @@ int main()
     do
     {
         system("cls");
-        printf("**** CALCULADORA ****\n\n");
+        printf("**** CALCULADORA ****\n\n\n");
         printf("1. Ingrese el 1er operando.");
         if(flag1 == 0 )
         {
@@ -40,11 +40,12 @@ int main()
         printf("4. Informar resultados.\n");
         printf("5. Salir.\n\n");
         printf("Ingrese la opcion seleccionada: ");
-        scanf("%d",&opcion1);
+        scanf("%c",&opcion1);
+        fflush(stdin);
 
         switch(opcion1)
         {
-        case 1:
+        case '1':
             system("cls");
             printf("1. Ingrese el 1er operando: ");
             scanf("%d",&A);
@@ -52,11 +53,11 @@ int main()
 
             break;
 
-        case 2:
+        case '2':
             system("cls");
             if(flag1 == 0)
             {
-                printf("Ingrese el 1er operando antes.\n\n");
+                printf("Primero ingrese el 1er operando.\n\n");
                 system("pause");
             }
             else
@@ -67,16 +68,16 @@ int main()
             }
             break;
 
-        case 3:
+        case '3':
             system("cls");
             if( flag1 == 0 || flag2 == 0)
             {
-                printf("Primero ingrese ambos operandos.\n\n");
+                printf("\n\nAntes de calcular ingrese ambos operandos.\n\n\n");
                 system("pause");
             }
             else
             {
-                printf("**** Calcular todas las operaciones: ****\n\n");
+                printf("**** Calcular todas las operaciones: ****\n\n\n");
                 printf("a. Calcular la suma de A+B.\n");
                 printf("b. Calcular la resta de A-B.\n");
                 printf("c. Calcular la division de A/B.\n");
@@ -125,7 +126,22 @@ int main()
 
                 case 'e':
                     system("cls");
-                    printf("El factorial de %d es: %d y el factorial de %d es: %d \n\n",A,factorial(A),B,factorial(B));
+                    if( A < 0 && B < 0)
+                    {
+                        printf("e. No se puede calcular la factorial de %d ni de %d.\n\n",A,B);
+                    }
+                    else if( A < 0 )
+                    {
+                        printf("e. La factorial de %d no se puede calcular, la factorial de %d es: %d.\n\n",A,B,factorial(B));
+                    }
+                    else if( B < 0 )
+                    {
+                        printf("e. La factorial de %d es: %d, la factorial de %d no se puede calcular.\n\n",A,factorial(A),B);
+                    }
+                    else
+                    {
+                        printf("e. La factorial de %d es: %d y la factorial de %d es: %d.\n\n",A,factorial(A),B,factorial(B));
+                    }
                     system("pause");
                     break;
 
@@ -139,11 +155,11 @@ int main()
             }
             break;
 
-        case 4:
+        case '4':
             system("cls");
             if( flag1 == 0 || flag2 == 0)
             {
-                printf("Primero ingrese ambos operandos.\n\n");
+                printf("\n\nAntes de calcular ingrese ambos operandos.\n\n\n");
                 system("pause");
             }
             else
@@ -160,26 +176,40 @@ int main()
                     printf("c. El resultado de %d / %d es %.2f \n",A,B,division(A,B));
                 }
                 printf("d. El resultado de %d * %d es %d\n",A,B,multiplicacion(A,B));
-                printf("e. La factorial de %d es: %d y la factorial de %d es: %d.\n\n",A,factorial(A),B,factorial(B));
+                if( A < 0 && B < 0)
+                {
+                    printf("e. No se puede calcular la factorial de %d ni de %d.\n\n",A,B);
+                }
+                else if( A < 0 )
+                {
+                    printf("e. La factorial de %d no se puede calcular, la factorial de %d es: %d.\n\n",A,B,factorial(B));
+                }
+                else if( B < 0 )
+                {
+                    printf("e. La factorial de %d es: %d, la factorial de %d no se puede calcular.\n\n",A,factorial(A),B);
+                }
+                else
+                {
+                    printf("e. La factorial de %d es: %d y la factorial de %d es: %d.\n\n",A,factorial(A),B,factorial(B));
+                }
                 system("pause");
             }
             break;
 
 
-        case 5:
+        case '5':
             system("cls");
             printf("Esta seguro que desea salir ? S/N \n");
-            fflush(stdin);
             scanf("%c",&salir);
+            fflush(stdin);
             salir=tolower(salir);
             break;
 
 
         default:
             system("cls");
-            printf("Opcion incorrecta, intente nuevamente.\n");
+            printf("Opcion incorrecta, intente nuevamente.\n\n");
             system("pause");
-            break;
         }
 
     }
