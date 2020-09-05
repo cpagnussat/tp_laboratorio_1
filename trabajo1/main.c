@@ -8,7 +8,7 @@
 int main()
 {
     char salir;
-    char opcion1;
+    int opcion1;
     char opcion2;
     int A, B;
     int flag1 = 0, flag2 = 0;
@@ -40,12 +40,11 @@ int main()
         printf("4. Informar resultados.\n");
         printf("5. Salir.\n\n");
         printf("Ingrese la opcion seleccionada: ");
-        scanf("%c",&opcion1);
-        fflush(stdin);
+        scanf("%d",&opcion1);
 
         switch(opcion1)
         {
-        case '1':
+        case 1:
             system("cls");
             printf("1. Ingrese el 1er operando: ");
             scanf("%d",&A);
@@ -53,7 +52,7 @@ int main()
 
             break;
 
-        case '2':
+        case 2:
             system("cls");
             if(flag1 == 0)
             {
@@ -68,8 +67,9 @@ int main()
             }
             break;
 
-        case '3':
+        case 3:
             system("cls");
+            fflush(stdin);
             if( flag1 == 0 || flag2 == 0)
             {
                 printf("\n\nAntes de calcular ingrese ambos operandos.\n\n\n");
@@ -85,9 +85,7 @@ int main()
                 printf("e. Calcular el factorial de !A y !B \n\n");
 
                 printf("Ingrese la opcion seleccionada: ");
-
-                fflush(stdin);
-                scanf("%c",&opcion2);
+                opcion2 = getchar();
                 opcion2 = tolower(opcion2);
 
                 switch(opcion2)
@@ -155,8 +153,9 @@ int main()
             }
             break;
 
-        case '4':
+        case 4:
             system("cls");
+            fflush(stdin);
             if( flag1 == 0 || flag2 == 0)
             {
                 printf("\n\nAntes de calcular ingrese ambos operandos.\n\n\n");
@@ -197,17 +196,21 @@ int main()
             break;
 
 
-        case '5':
+        case 5:
             system("cls");
-            printf("Esta seguro que desea salir ? S/N \n");
-            scanf("%c",&salir);
             fflush(stdin);
+            printf("Esta seguro que desea salir ? S/N \n");
+            salir = getchar();
             salir=tolower(salir);
             break;
 
 
         default:
             system("cls");
+            fflush(stdin);//debuggeando el programa vi que si ingresaba un char o un string se loopeaba el default
+                          //solo lo solucione agregando este fflush en el default, sino podia evaluar la variable opcion 1 como char
+                          //y los numeros como caracteres '1','2', etc. para que tire error si ponia cualquier otra letra
+                          // pero si ingresaba "1234" tomaba la opcion 1 por evaluar el primer caracter, asi que no
             printf("Opcion incorrecta, intente nuevamente.\n\n");
             system("pause");
         }

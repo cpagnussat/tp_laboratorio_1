@@ -28,7 +28,7 @@ int resta(int numero1,int numero2)
 }
 
 
-float division(int numero1,int numero2)   //agregarle la condicion para dividir por cero aca y sacarla del main
+float division(int numero1,int numero2)   //agregarle la condicion para dividir por cero aca y sacarla del main... o no
 {
     float division;
 
