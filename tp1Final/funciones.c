@@ -5,9 +5,9 @@ int suma(int numero1,int numero2)
 }
 
 
-int factorial(int numero)
+unsigned int factorial(int numero)
 {
-    int factorial = 1;
+    unsigned int factorial = 1;
 
     for( int i = numero ; i > 1 ; i-- )
     {

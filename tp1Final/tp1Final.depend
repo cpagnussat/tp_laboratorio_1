@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1599927878 source:c:\codeblocks\tp1final\main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	"funciones.h"
+
+1599765461 c:\codeblocks\tp1final\funciones.h
+
+1599924669 source:c:\codeblocks\tp1final\funciones.c
+
