@@ -1,0 +1,17 @@
+# depslib dependency file v1.0
+1601845507 source:c:\codeblocks\tp2intento1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"funciones.h"
+
+1601848650 c:\codeblocks\tp2intento1\funciones.h
+
+1601847182 source:c:\codeblocks\tp2intento1\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"funciones.h"
+
